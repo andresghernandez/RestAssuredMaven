@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class LoginNSRunner {
 
-    @Before
+    /*@Before
     public void setUp(){
         RestAssured.baseURI = "https://reqres.in/";
         RestAssured.basePath = "api";
@@ -42,6 +42,6 @@ public class LoginNSRunner {
 
         assertThat(statusCode, equalTo(200));
 
-    }
+    }*/
 
 }

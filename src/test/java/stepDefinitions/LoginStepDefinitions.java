@@ -8,7 +8,6 @@ import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import questions.Login;
 import tasks.LoginUser;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static org.hamcrest.Matchers.equalTo;
 
 public class LoginStepDefinitions {
@@ -36,4 +35,27 @@ public class LoginStepDefinitions {
         park.should(GivenWhenThen.seeThat("Código de respuesta", Login.was(), equalTo(200)));
     }
 
+    //----------------------------------------------------------------------------------------------
+    
+    @Given("^that I need to log in to the page$")
+    public void thatINeedToLogInToThePage() {
+    	park.whoCan(CallAnApi.at(resApiUrl));
+    }
+
+
+    @When("^send the data to log in$")
+    public void sendTheDataToLogIn() {
+        String body = "{\n" +
+                "    \"email\": \"eve.holt@reqres.in\",\n" +
+                "    \"password\": \"cityslicka\"\n" +
+                "}";
+        park.attemptsTo(LoginUser.loginuser(body));
+    }
+
+    @Then("^I get a successful response$")
+    public void iGetASuccessfulResponse() {
+    	park.should(GivenWhenThen.seeThat("Código de respuesta", Login.was(), equalTo(200)));
+    }
+
+    
 }
