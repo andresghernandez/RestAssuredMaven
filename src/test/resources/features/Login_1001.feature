@@ -1,5 +1,5 @@
 #Auto generated Octane revision tag
-@TID1001REV0.7.0
+@TID1001REV0.2.0
 Feature: login rest assured
 	
     @CASO1001
@@ -11,4 +11,3 @@ Feature: login rest assured
 	Examples:
 		| row | 
 		| 1   | 
- 
